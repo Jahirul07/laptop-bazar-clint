@@ -1,0 +1,17 @@
+[
+    {
+        "_id": 1,
+        "name" : "apple",
+        "img" : "https://cdn.mos.cms.futurecdn.net/6bTF6C2QiWXvhi33fJi3AC.jpg"
+    },
+    {
+        "_id": 2,
+        "name" : "lenovo",
+        "img" : "https://1000logos.net/wp-content/uploads/2017/03/Lenovo-Logo-2003.png"
+    },
+    {
+        "_id": 3,
+        "name" : "walton",
+        "img" : "https://logodix.com/logo/2159716.png"
+    }
+]
