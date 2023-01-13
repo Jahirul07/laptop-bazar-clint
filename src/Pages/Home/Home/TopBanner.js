@@ -3,7 +3,7 @@ import React from "react";
 const TopBanner = () => {
   return (
     <div
-      className="hero h-96 rounded-lg"
+      className="hero h-96 rounded-lg my-10"
       style={{ backgroundImage: `url("https://i.pinimg.com/1200x/8d/c0/02/8dc0022e2afb9aea63a1a267d826e86d.jpg")` }}
     >
       <div className="hero-overlay bg-opacity-60 rounded-lg"></div>

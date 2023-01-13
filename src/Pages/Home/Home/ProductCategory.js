@@ -3,7 +3,7 @@ import React from 'react';
 const ProductCategory = () => {
     return (
         <div>
-            <h2>Product</h2>
+            <h2 className='text-center text-3xl font-semibold'>Product Categories</h2>
         </div>
     );
 };
