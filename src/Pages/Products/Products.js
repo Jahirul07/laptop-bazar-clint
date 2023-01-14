@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import ProductModal from "./ProductModal";
 
 const Products = () => {
     const products = useLoaderData()
@@ -15,6 +16,7 @@ const Products = () => {
                 ></ProductCard>)
             }
         </div>
+        <ProductModal></ProductModal>
     </div>
   );
 };

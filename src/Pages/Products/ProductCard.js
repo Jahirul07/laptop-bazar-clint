@@ -21,7 +21,7 @@ const ProductCard = ({product}) => {
         <p>resellPrice: {resellPrice}</p>
         <p>yearsOfUse: {yearsOfUse}</p>
         </div>
-        <button className='btn btn-primary'>Book Now</button>
+        <label htmlFor="booking-modal" className="btn btn-primary">open modal</label>
       </div>
     </div>
         </div>
