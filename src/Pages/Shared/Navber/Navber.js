@@ -1,26 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Navber = () => {
-    const menuItem = (
-        <React.Fragment>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/blog'>Blog</Link>
-          </li>
-          <li>
-            <Link to='/dashboard'>Dashborad</Link>
-            <button>Sign out</button>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-        </React.Fragment>
-      );
-    return (
-        <div className="navbar bg-base-100 flex justify-between">
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.error(err));
+  };
+  const menuItem = (
+    <React.Fragment>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/blog">Blog</Link>
+      </li>
+      {user?.uid ? (
+        <li>
+          <Link to="/dashboard">Dashborad</Link>
+          <button onClick={handleLogOut}>Sign out</button>
+        </li>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
+    </React.Fragment>
+  );
+  return (
+    <div className="navbar bg-base-100 flex justify-between">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,16 +58,16 @@ const Navber = () => {
           </ul>
         </div>
         <Link className="font-bold normal-case text-2xl">
-          <Link to="/"><span className='text-orange-600'>Laptop</span> Bazar</Link>
+          <Link to="/">
+            <span className="text-orange-600">Laptop</span> Bazar
+          </Link>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold">
-          {menuItem}
-        </ul>
+        <ul className="menu menu-horizontal px-1 font-semibold">{menuItem}</ul>
       </div>
     </div>
-    );
+  );
 };
 
 export default Navber;

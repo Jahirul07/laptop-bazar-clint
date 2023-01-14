@@ -1,6 +1,5 @@
 [
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea1",
         "category": "apple",
         "name": "Apple MacBook Air 13.3-Inch",
         "location": "Dhaka",
@@ -14,7 +13,6 @@
         "img": "https://www.nexus.com.bd/images/detailed/5/APPLE_MACBOOK_PRO__M1_CHIP_8GB_RAM_256GB_SILVER.jpg"
       },
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea2",
         "category": "apple",
         "name": "Apple MacBook Pro 13.3-Inch",
         "location": "Dhaka",
@@ -28,7 +26,6 @@
         "img": "https://i.pcmag.com/imagery/reviews/038Dr5TVEpwIv8rCljx6UcF-14.fit_lim.size_1050x591.v1588802180.jpg"
       },
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea3",
         "category": "lenovo",
         "name": "Lenovo IdeaPad D330 10IGL",
         "location": "Dhaka",
@@ -42,7 +39,6 @@
         "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/d330/d330-1-500x500.jpg"
       },
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea4",
         "category": "lenovo",
         "name": "Lenovo IdeaPad Slim 3i Celeron",
         "location": "Dhaka",
@@ -56,7 +52,6 @@
         "img": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/d330/d330-3-500x500.jpg"
       },
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea5",
         "category": "walton",
         "name": "Walton Passion BX310U Core i3",
         "location": "Dhaka",
@@ -70,7 +65,6 @@
         "img": "https://www.startech.com.bd/image/cache/catalog/laptop/walton/passion-bx310u/passion-bx310u-01-500x500.jpg"
       },
     {
-        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ea6",
         "category": "walton",
         "name": "Walton Tamarind MX311G Core",
         "location": "Dhaka",

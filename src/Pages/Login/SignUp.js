@@ -1,9 +1,10 @@
-// import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-// import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../contexts/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
+
 
 const SignUp = () => {
   const {
@@ -11,40 +12,40 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-//   const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
-//   const googleProvider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
   const onSubmit = (data) => {
     console.log(data);
-    // setSignUpError("");
-    // createUser(data.email, data.password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     toast.success("User Created Successfully");
-    //     const userInfo = {
-    //       displayName: data.name,
-    //     };
-    //     updateUser(userInfo)
-    //       .then(() => {})
-    //       .catch((err) => console.error(err));
-    //   })
-    //   .catch((err) => {
-    //     console.error(err.message);
-    //     setSignUpError(err.message);
-    //   });
+    setSignUpError("");
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("User Created Successfully");
+        const userInfo = {
+          displayName: data.name,
+        };
+        updateUser(userInfo)
+          .then(() => {})
+          .catch((err) => console.error(err));
+      })
+      .catch((err) => {
+        console.error(err.message);
+        setSignUpError(err.message);
+      });
   };
-//   const handleGoogleSignIn = () => {
-//         signInWithGoogle(googleProvider)
-//         .then(result => {
-//           console.log(result)
-//         })
-//         .catch(error => console.log(error))
-//   }
+  const handleGoogleSignIn = () => {
+        signInWithGoogle(googleProvider)
+        .then(result => {
+          console.log(result)
+        })
+        .catch(error => console.log(error))
+  }
   return (
     <div className="h-[800px] flex justify-center items-center">
-      <div className="w-96 p-7">
+      <div className="w-96 p-7 shadow-xl">
         <h2 className="text-xl text-center font-bold">Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full">
@@ -112,9 +113,9 @@ const SignUp = () => {
           </Link>
         </p>
         <div className="divider">OR</div>
-        {/* <button onClick={handleGoogleSignIn} className="btn btn-outline w-full">
+        <button onClick={handleGoogleSignIn} className="btn btn-outline w-full">
           CONTINUE WITH GOOGLE
-        </button> */}
+        </button>
       </div>
     </div>
   );

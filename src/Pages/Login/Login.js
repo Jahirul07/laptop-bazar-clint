@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
     const { register, formState: {errors}, handleSubmit } = useForm();
-//   const {signIn} = useContext(AuthContext);
+  const {signIn} = useContext(AuthContext);
   const [loginError, setLoginError] = useState('')
   const location = useLocation()
   const navigate = useNavigate()
@@ -13,21 +14,21 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data)
-//     setLoginError('');
-//     signIn(data.email, data.password)
-//     .then(result => {
-//       const user = result.user;
-//       console.log(user);
-//       navigate(from, {replace: true});
-//     })
-//   .catch(err => {
-//     console.error(err.message)
-//     setLoginError(err.message);
-//   });
+    setLoginError('');
+    signIn(data.email, data.password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      navigate(from, {replace: true});
+    })
+  .catch(err => {
+    console.error(err.message)
+    setLoginError(err.message);
+  });
   };
     return (
         <div className="h-[800px] flex justify-center items-center">
-      <div className="w-96 p-7">
+      <div className="w-96 p-7 shadow-lg">
         <h2 className="text-xl text-center font-bold">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full">
@@ -56,7 +57,7 @@ const Login = () => {
             {loginError && <span className="text-red-600">{loginError}</span>}
           </div>
         </form>
-        <p>New to Doctors Portal <Link className="text-secondary" to='/signup'>Create an Account</Link></p>
+        <p>New to Laptop Bazar <Link className="text-secondary" to='/signup'>Create an Account</Link></p>
         <div className="divider">OR</div>
         <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
       </div>
