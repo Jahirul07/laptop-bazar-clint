@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 
@@ -15,25 +15,41 @@ const SignUp = () => {
   const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
   const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
-    console.log(data);
     setSignUpError("");
     createUser(data.email, data.password)
       .then((result) => {
-        const user = result.user;
+        const user = result?.user;
         console.log(user);
         toast.success("User Created Successfully");
         const userInfo = {
-          displayName: data.name,
+          displayName: data?.name,
         };
         updateUser(userInfo)
-          .then(() => {})
+          .then(() => {
+            saveUser(data.name, data.email, data.role);
+          })
           .catch((err) => console.error(err));
       })
       .catch((err) => {
         console.error(err.message);
         setSignUpError(err.message);
+      });
+  };
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        navigate('/')
       });
   };
   const handleGoogleSignIn = () => {
@@ -75,6 +91,19 @@ const SignUp = () => {
             {errors.email && (
               <span className="text-red-500">{errors.email.message}</span>
             )}
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              {" "}
+              <span className="label-text">Account Type</span>
+            </label>
+            <select
+              {...register("role")}
+              className="select input-bordered w-full max-w-xs"
+            >
+              <option value="buyer">Buyer</option>
+              <option value="seller">Seller</option>
+              </select>
           </div>
           <div className="form-control w-full">
             <label className="label">

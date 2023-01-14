@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, setOrderInfo}) => {
     const {img, name, location, number, purchasedYear, originalPrice, resellPrice, yearsOfUse,sellerName} = product;
     return (
         <div className='flex justify-center'>
@@ -21,7 +21,7 @@ const ProductCard = ({product}) => {
         <p>resellPrice: {resellPrice}</p>
         <p>yearsOfUse: {yearsOfUse}</p>
         </div>
-        <label htmlFor="booking-modal" className="btn btn-primary">open modal</label>
+        <label onClick={() => setOrderInfo(product)} htmlFor="booking-modal" className="btn btn-primary">Order Now</label>
       </div>
     </div>
         </div>
